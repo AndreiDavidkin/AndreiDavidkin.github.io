@@ -1,4 +1,4 @@
-@import url(<link href="https://fonts.googleapis.com/css?family=Exo");
+@import url("https://fonts.googleapis.com/css?family=Exo");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -83,7 +83,7 @@ button::-moz-focus-inner {
 .butgeo{
 	color: white;
 	background: none;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Exo', sans-serif;
 	font-weight:100;
 	font-size: 2rem;
 	border: dashed 6px yellow;
@@ -98,10 +98,11 @@ button::-moz-focus-inner {
 	font-family: 'Exo, sans-serif;
 	font-weight:100;
 	letter-spacing:0.5rem;
+     text-shadow: -1.4px 0 red,  1.4px 0 cyan;
+    letter-spacing: 0.08em; 
 	text-align: center;
 	padding-left: 0.5rem;
 	padding-top: 1rem;
-   animation:glitch 2s steps(100) infinite;
 
 
 }
@@ -138,12 +139,6 @@ button::-moz-focus-inner {
 .but a:hover{
 	border-bottom: 1px solid white;
 }
-
-
-
-
-
-
 
 .line1{
 	padding-left: 5%;
@@ -309,7 +304,7 @@ button::-moz-focus-inner {
 		display: inline-block;
 		width: 100%;
 		font-size: 8vw;
-		font-family: 'Roboto', sans-serif;
+		font-family: 'Exo', sans-serif;
 		font-weight:100;
 		letter-spacing:0.5rem;
 		text-align: center;
@@ -403,8 +398,6 @@ button::-moz-focus-inner {
 }
 
 
-
-
 @media (max-width: 980px) and (orientation:landscape){
 	
 .cont{
@@ -421,155 +414,4 @@ button::-moz-focus-inner {
 	.lef{
 		margin-left: -4%;
 	}
-
-
-
-
-}
-@media (max-width:1200px ) and (min-width:1106px){
-	.lef{
-		margin-left: -4%;
-	}
-
-
-
-
-}
-@media (max-width:1200px ) and (min-width:1106px){
-	.lef{
-		margin-left: -6%;
-	}
-	}
-
-
-@-webkit-keyframes swing
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
-    }
-    30%
-    {
-        -webkit-transform: translateX(-5px);
-       transform: translateX(-5px);
-    } 
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
-    }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
-    }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
-@keyframes swing 
-{
-    15%
-    {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
-    }
-    30%
-    {
-        -webkit-transform: translateX(-5px);
-        transform: translateX(-5px);
-    }
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
-    }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
-    }
-    100%
-    {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-}
-@media screen and (min-width: 1200px) {/* если окно браузера больше максимальной ширины сайта */ 
-  html {
-    margin-left: calc(100vw - 100%);
-    margin-right: 0;
-  }
-}
-    $r: rgba(255,0,0,1); $g: rgba(0,255,0,1); $b: rgba(0,0,255,1); $px: 0; $px2:0;
-
-@mixin mini-glitch($c1, $c2, $coeff, $start, $end){
-  $interval: $end - $start;
-  @for $i from $start through $end {
-    #{$i * 1%} {   
-      @if $i < $start + ($interval/2){
-        $px : $px + $coeff;$px2: -$px;   
-        text-shadow: #{$px}px 0 0 $c1, #{$px2}px 0 0 $c2;
-      }
-      @else{
-        $px : $px - 1;$px2: -$px;  
-        text-shadow: #{$px}px 0 0 $c1, #{$px2}px 0 0 $c2;
-      } 
-    }
-  }
-  $px: 0;$px2: 0;
-}
-
-@mixin big-glitch($c1, $c2, $distance, $start, $end){
-  @for $i from $start through $end {   
-    #{$i * 1%} {
-      @if $i == $end {
-          text-shadow: 0 0 0 $c1, 0 0 0 $c2;
-      }
-      @else{   
-          $px : $distance;$px2: -$px;
-          text-shadow: #{$px}px 0 0 $c1, #{$px2}px 0 0 $c2;
-      }
-    }
-  }
-  $px: 0;$px2: 0;
-}
-
-
-@keyframes glitch{
-      
-  @include mini-glitch($r, $b, 1, 0, 10);
-  @include mini-glitch($r, $g, 0.5, 11, 20);  
-  @include mini-glitch($b, $g, 0.7, 21, 40);
-  
-  @include big-glitch($b, $g, 50, 41, 42);
-  
-  @include mini-glitch($r, $g, 0.5, 43, 50); 
-  @include mini-glitch($r, $b, 1, 51, 60);
-  
-  @include big-glitch($r, $g, 30, 61, 62); 
-  
-  @include mini-glitch($r, $b, 0.5, 63, 70);
-  
-  @include big-glitch($r, $b, 70, 71, 72);
-  
-  @include mini-glitch($r, $b, 1, 73, 80);
-  @include mini-glitch($r, $g, 0.5, 81, 90);
-
-  @include big-glitch($g, $b, 60, 91, 92);
-  
-  @include mini-glitch($b, $g, 0.7, 92, 100);
-}
+    
